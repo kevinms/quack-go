@@ -11,5 +11,5 @@ go:
  - tip
 
 script:
-	go vet
-	go test -v
+ - go vet
+ - go test -v
