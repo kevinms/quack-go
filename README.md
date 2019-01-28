@@ -10,7 +10,7 @@ package main
 
 import (
   "fmt"
-  quack "github.com/kevinms/quack-go"
+  "github.com/kevinms/quack-go"
   "math/rand"
 )
 

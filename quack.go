@@ -11,21 +11,21 @@ which is amortized O(1).
 	}
 
 	func main() {
-	q := quack.NewQuack(lessInt)
+		q := quack.NewQuack(lessInt)
 
-	n := 1000000
-	for i := 0; i < n; i++ {
-		q.Push(rand.Int())
+		n := 1000000
+		for i := 0; i < n; i++ {
+			q.Push(rand.Int())
+		}
+
+		fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
+
+		for q.Len() > n/2 {
+			q.Pop()
+		}
+
+		fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
 	}
-
-	fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
-
-	for q.Len() > n/2 {
-		q.Pop()
-	}
-
-	fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
-}
 */
 package quack
 
