@@ -2,7 +2,7 @@ package quack_test
 
 import (
 	"fmt"
-	"quack"
+	"github.com/kevinms/quack-go"
 )
 
 func lessInt(a, b interface{}) bool {

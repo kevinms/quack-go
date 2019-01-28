@@ -2,9 +2,9 @@ package quack_test
 
 import (
 	"fmt"
+	"github.com/kevinms/quack-go"
 	"math"
 	"math/rand"
-	"quack"
 	"testing"
 	"time"
 )
