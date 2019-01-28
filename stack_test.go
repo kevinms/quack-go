@@ -1,29 +1,16 @@
-package quack
+package quack_test
 
 import (
 	"fmt"
 	"math"
 	"math/rand"
+	"quack"
 	"testing"
 	"time"
 )
 
-func lessInt(a, b interface{}) bool {
-	return a.(int) < b.(int)
-}
-
-func TestNewStack(t *testing.T) {
-	s := NewStack(lessInt)
-	if s.l == nil {
-		t.Fatal("Failed to initialize list.List?!")
-	}
-	if s.less == nil {
-		t.Fatal("Failed to initialize less func pointer?!")
-	}
-}
-
 func TestStackPushPopLen(t *testing.T) {
-	s := NewStack(lessInt)
+	s := quack.NewStack(lessInt)
 	if i := s.Pop(); i != nil {
 		t.Fatalf("Pop() of empty queue should return nil, but got %v!", i)
 	}
@@ -45,7 +32,7 @@ func TestStackPushPopLen(t *testing.T) {
 }
 
 func TestStackMin(t *testing.T) {
-	s := NewStack(lessInt)
+	s := quack.NewStack(lessInt)
 
 	in := []int{5, 6, 4, 0, 1}
 	mins := []int{5, 5, 4, 0, 0}
@@ -107,7 +94,7 @@ func findMin(stack []int) interface{} {
 func TestStackRand(t *testing.T) {
 	rand.Seed(time.Now().UnixNano())
 
-	s := NewStack(lessInt)
+	s := quack.NewStack(lessInt)
 
 	stack := make([]int, 0, 4096)
 

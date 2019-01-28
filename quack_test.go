@@ -1,19 +1,10 @@
-package quack
+package quack_test
 
 import (
 	"fmt"
+	"quack"
 	"testing"
 )
-
-func TestNew(t *testing.T) {
-	q := NewQuack(lessInt)
-	if q.in == nil || q.out == nil {
-		t.Fatal("Failed to initialize Stack(s)?!")
-	}
-	if q.less == nil {
-		t.Fatal("Failed to initialize less func pointer?!")
-	}
-}
 
 type action struct {
 	what string
@@ -22,7 +13,7 @@ type action struct {
 }
 
 func TestQuackMin(t *testing.T) {
-	q := NewQuack(lessInt)
+	q := quack.NewQuack(lessInt)
 
 	actions := []action{
 		{"push", 5, 5},

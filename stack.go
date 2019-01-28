@@ -1,13 +1,7 @@
-// Implements a LIFO stack that can return the minimum value in the stack in
+// A Stack is a LIFO stack that can return the minimum value in the stack in
 // O(1) time.
 //
-// The worst case runtime of every public method is O(1).
-//
-// Operation  Runtime
-// Push()     O(1)
-// Pop()      O(1)
-// Len()      O(1)
-// Min()      O(1)
+// A Stack's worst case runtime of every public method is O(1).
 package quack
 
 import (

@@ -1,14 +1,32 @@
-// Implements a FIFO Queue that can return the minimum value in the queue in
-// O(1) time. The queue is composed of two stacks, hence the name 'quack'.
-//
-// The worst case runtime of every public method is O(1) except Pop(), which is
-// amortized O(1).
-//
-// Operation  Runtime
-// Push()     O(1) amortized
-// Pop()      O(1)
-// Len()      O(1)
-// Min()      O(1)
+/*
+A Quack is a FIFO Queue that can return the minimum value in the queue in
+O(1) time. The name 'quack' is a smash up of 'queue' and 'stack', because
+the queue is implemented using two stacks.
+
+A Quack's worst case runtime of every public method is O(1) except Pop(),
+which is amortized O(1).
+
+	func lessInt(a, b interface{}) bool {
+		return a.(int) < b.(int)
+	}
+
+	func main() {
+	q := quack.NewQuack(lessInt)
+
+	n := 1000000
+	for i := 0; i < n; i++ {
+		q.Push(rand.Int())
+	}
+
+	fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
+
+	for q.Len() > n/2 {
+		q.Pop()
+	}
+
+	fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
+}
+*/
 package quack
 
 type LessFunc func(a, b interface{}) bool
