@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kevinms/quack-go.svg?branch=master)](https://travis-ci.com/kevinms/quack-go)
+
 # quack-go
 Queue that can return the minimum element in O(1) time where no operation is worse than O(1) amortized.
 
