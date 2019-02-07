@@ -9,7 +9,7 @@ The name 'quack' is a smash up of 'queue' and 'stack', because the queue is impl
 
 ### Example usage:
 
-```
+```go
 package main
 
 import (
