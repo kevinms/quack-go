@@ -1,7 +1,7 @@
 /*
-A Quack is a FIFO Queue that can return the minimum value in the queue in
-O(1) time. The name 'quack' is a smash up of 'queue' and 'stack', because
-the queue is implemented using two stacks.
+Package quack implements a FIFO Queue that can return the minimum value in the
+queue in O(1) time. The name 'quack' is a smash up of 'queue' and 'stack',
+because the queue is implemented using two stacks.
 
 A Quack's worst case runtime of every public method is O(1) except Pop(),
 which is amortized O(1).
@@ -26,11 +26,23 @@ which is amortized O(1).
 
 		fmt.Printf("Len: %v, Min: %v\n", q.Len(), q.Min())
 	}
+
+Stack is a LIFO stack that can return the minimum value in the stack in
+O(1) time.
+
+A Stack's worst case runtime of every public method is O(1).
 */
 package quack
 
+// LessFunc is used to compare items stored in the Quack and determine which is
+// the smallest.
 type LessFunc func(a, b interface{}) bool
 
+// Quack is a FIFO Queue that can return the minimum value in the queue in O(1)
+// time.
+//
+// A Quack's worst case runtime of every public method is O(1) except Pop(),
+// which is amortized O(1).
 type Quack struct {
 	in   *Stack
 	out  *Stack
@@ -46,12 +58,12 @@ func NewQuack(less LessFunc) *Quack {
 	}
 }
 
-// Pushes v onto the quack in O(1).
+// Push adds v onto the quack in O(1).
 func (q *Quack) Push(v interface{}) {
 	q.in.Push(v)
 }
 
-// Pops the oldest data from the quack in amortized O(1).
+// Pop removes the oldest data from the quack in amortized O(1).
 func (q *Quack) Pop() interface{} {
 	if i := q.out.Pop(); i != nil {
 		return i
@@ -63,12 +75,12 @@ func (q *Quack) Pop() interface{} {
 	return q.out.Pop()
 }
 
-// Returns the number of items in the quack in O(1).
+// Len returns the number of items in the quack in O(1).
 func (q *Quack) Len() int {
 	return q.in.Len() + q.out.Len()
 }
 
-// Returns the smallest value in the quack in O(1).
+// Min returns the smallest value in the quack in O(1).
 func (q *Quack) Min() interface{} {
 	v1 := q.in.Min()
 	v2 := q.out.Min()
