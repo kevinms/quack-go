@@ -6,6 +6,10 @@ import (
 	"testing"
 )
 
+func lessInt(a, b interface{}) bool {
+	return a.(int) < b.(int)
+}
+
 type action struct {
 	what string
 	n    int

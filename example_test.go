@@ -1,8 +1,7 @@
-package quack_test
+package quack
 
 import (
 	"fmt"
-	"github.com/kevinms/quack-go"
 )
 
 func lessInt(a, b interface{}) bool {
@@ -10,7 +9,7 @@ func lessInt(a, b interface{}) bool {
 }
 
 func ExampleQuack() {
-	q := quack.NewQuack(lessInt)
+	q := NewQuack(lessInt)
 
 	a := []int{2, 0, 8, 3, 4}
 	for _, n := range a {
@@ -30,7 +29,7 @@ func ExampleQuack() {
 }
 
 func ExampleStack() {
-	s := quack.NewStack(lessInt)
+	s := NewStack(lessInt)
 
 	a := []int{4, 3, 8, 0, 2}
 	for _, n := range a {
